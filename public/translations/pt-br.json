@@ -1,0 +1,12 @@
+{
+    "header": {
+        "title": "Pomodoro",
+        "subtitle": "Gerencie seu tempo de maneira mágica!"
+    },
+    
+    "mode_names": {
+        "focus": "Foco",
+        "shortPause": "Pausa curta",
+        "longPause": "Pausa longa"
+    }
+}
