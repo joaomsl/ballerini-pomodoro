@@ -157,6 +157,7 @@
                         <template x-transition x-for="(task, index) in tasks" :key="index">
                             <li x-id="['taskId']" class="flex items-center gap-x-2">
                                 <input 
+                                    @click="toggle(index)"
                                     :checked="task.isCompleted"
                                     class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" 
                                     type="checkbox" 
