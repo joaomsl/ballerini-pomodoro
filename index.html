@@ -12,7 +12,7 @@
 
     <title>Ballerini - Pomodoro</title>
 </head>
-<body class="grid place-items-center h-screen">
+<body class="grid place-items-center h-screen bg-zinc-50">
     <div class="container mx-auto">
         <header class="flex items-center justify-between">
             <div>
@@ -37,7 +37,7 @@
                 </button>
             </div>
         </header>
-        <main class="mt-12 grid grid-cols-2">
+        <main class="mt-12 grid grid-cols-2 gap-x-9">
             <section class="p-6 border border-zinc-200 rounded-xl">
                 <header class="flex items-center justify-between">
                     <div>
@@ -78,32 +78,76 @@
                     </div>
                 </article>
 
-                <article>
-                    <svg class="w-36 aspect-square">
+                <article class="relative">
+                    <svg class="w-56 aspect-square mx-auto">
                         <circle 
-                            class="text-blue-600" 
-                            stroke-width="15" 
-                            stroke-linecap="round" 
+                            class="text-zinc-100" 
+                            stroke-width="5%" 
                             stroke="currentColor" 
                             fill="transparent" 
-                            r="55" 
-                            cx="65" 
-                            cy="65" />
+                            r="100" 
+                            cx="50%" 
+                            cy="50%" />
                         <circle 
-                            x-data="{circumference: 55 * 2 * Math.PI, percent: 0}"
-                            x-init="setInterval(() => percent += 10, 1000*2)"
-                            class="text-red-500 transition-all" 
-                            stroke-width="15" 
+                            x-data="{circumference: 100 * 2 * Math.PI, percent: 25}"
+                            class="text-lime-500 transition-all" 
+                            stroke-width="5%" 
                             stroke="currentColor" 
                             fill="transparent" 
-                            r="55" 
-                            cx="65" 
-                            cy="65"
+                            r="100" 
+                            cx="50%" 
+                            cy="50%"
+                            stroke-linecap="round"
                             :stroke-dasharray="circumference" 
                             :stroke-dashoffset="circumference - percent / 100 * circumference" 
                         />
                     </svg>
+
+                    <span class="font-timer text-6xl text-zinc-600 absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">18:00</span>
                 </article>
+            </section>
+
+            <section class="p-6 border border-zinc-200 rounded-xl flex flex-col justify-between">
+                <div>
+                    <header class="flex items-center justify-between">
+                        <div>
+                            <h1 class="font-bold text-2xl text-zinc-600">Lista de tarefas</h1>
+                            <p class="text-zinc-500">Seus objetivos para essa sessão</p>
+                        </div>
+    
+                        <span class="bg-zinc-100 p-2 text-2xl rounded">🚀</span>
+                    </header>
+    
+                    <hr class="my-6 bg-zinc-200 border-zinc-200">
+    
+                    <ul class="flex flex-col gap-y-4">
+                        <li class="flex items-center gap-x-2">
+                            <input class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" type="checkbox" id="tarefa1">
+                            <label class="font-medium text-zinc-500 hover:cursor-pointer" for="tarefa1">Escrever e-mail importante.</label>
+                        </li>
+                        <li class="flex items-center gap-x-2">
+                            <input class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" type="checkbox" id="tarefa2">
+                            <label class="font-medium text-zinc-500 hover:cursor-pointer" for="tarefa2">Terminar redação</label>
+                        </li>
+                        <li class="flex items-center gap-x-2">
+                            <input class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" type="checkbox" id="tarefa3">
+                            <label class="font-medium text-zinc-500 hover:cursor-pointer" for="tarefa3">Preparar vlog novo.</label>
+                        </li>
+                        <li class="flex items-center gap-x-2">
+                            <input class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" type="checkbox" id="tarefa4">
+                            <label class="font-medium text-zinc-500 hover:cursor-pointer" for="tarefa4">Seguir @ruy.dev no instagram</label>
+                        </li>
+                        <li class="flex items-center gap-x-2">
+                            <input class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" type="checkbox" id="tarefa5">
+                            <label class="font-medium text-zinc-500 hover:cursor-pointer" for="tarefa5">Ir para a academia</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex gap-x-3">
+                    <input class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:ring-lime-500 focus:transition-shadow" type="text" placeholder="Nova tarefa">
+                    <button  class="basis-[20%] block w-full px-3 py-2 bg-lime-500 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]">Adicionar</button>
+                </div>
             </section>
         </main>
     </div>
