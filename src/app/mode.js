@@ -9,7 +9,8 @@ function makeMode(nameTranslationKey, dateTimeStrategy, styleClasses, iconName) 
 function makeFocusMode() {
     return makeMode(
         'focus',
-        (dateTime) => dateTime.setMinutes(25),
+        // (dateTime) => dateTime.setMinutes(25),
+        (dateTime) => dateTime.setSeconds(3),
         makeModeStyleClasses('border-lime-500', 'bg-lime-500/10', 'text-lime-500'),
         'brain'
     )
@@ -18,7 +19,8 @@ function makeFocusMode() {
 function makeShortPauseMode() {
     return makeMode(
         'shortPause',
-        (dateTime) => dateTime.setMinutes(5),
+        // (dateTime) => dateTime.setMinutes(5),
+        (dateTime) => dateTime.setSeconds(3),
         makeModeStyleClasses('border-amber-500', 'bg-amber-500/10', 'text-amber-500'),
         'coffee'
     )
@@ -27,7 +29,8 @@ function makeShortPauseMode() {
 function makeLongPauseMode() {
     return makeMode(
         'longPause',
-        (dateTime) => dateTime.setMinutes(15),
+        // (dateTime) => dateTime.setMinutes(15),
+        (dateTime) => dateTime.setSeconds(3),
         makeModeStyleClasses('border-cyan-500', 'bg-cyan-500/10', 'text-cyan-500'),
         'coffee'
     )
