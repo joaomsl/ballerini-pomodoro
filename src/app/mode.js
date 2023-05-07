@@ -2,14 +2,14 @@ function makeModeStyleClasses(borderColorClass, backgroundClass, textColorClass)
     return {borderColorClass, backgroundClass, textColorClass}
 }
 
-function makeMode(nameTranslationKey, duration, styleClasses, iconName) {
-    return {nameTranslationKey, duration, styleClasses, iconName}
+function makeMode(nameTranslationKey, dateTimeStrategy, styleClasses, iconName) {
+    return {nameTranslationKey, dateTimeStrategy, styleClasses, iconName}
 }
 
 function makeFocusMode() {
     return makeMode(
         'focus',
-        '25 minutes',
+        (dateTime) => dateTime.setMinutes(25),
         makeModeStyleClasses('border-lime-500', 'bg-lime-500/10', 'text-lime-500'),
         'brain'
     )
@@ -18,7 +18,7 @@ function makeFocusMode() {
 function makeShortPauseMode() {
     return makeMode(
         'shortPause',
-        '5 minutes',
+        (dateTime) => dateTime.setMinutes(5),
         makeModeStyleClasses('border-amber-500', 'bg-amber-500/10', 'text-amber-500'),
         'coffee'
     )
@@ -27,7 +27,7 @@ function makeShortPauseMode() {
 function makeLongPauseMode() {
     return makeMode(
         'longPause',
-        '15 minutes',
+        (dateTime) => dateTime.setMinutes(15),
         makeModeStyleClasses('border-cyan-500', 'bg-cyan-500/10', 'text-cyan-500'),
         'coffee'
     )
