@@ -37,7 +37,7 @@
                 </button>
             </div>
         </header>
-        <main class="mt-12 grid grid-cols-2 gap-x-9">
+        <main x-data="pomodoro($mode.getCurrentMode(), $mode.getNextMode())" class="mt-12 grid grid-cols-2 gap-x-9">
             <section class="p-6 border border-zinc-200 rounded-xl">
                 <header class="flex items-center justify-between">
                     <div>
@@ -78,7 +78,7 @@
                     </div>
                 </article>
 
-                <article x-data="timer" class="flex items-center justify-center gap-x-8">
+                <article class="flex items-center justify-center gap-x-8">
                     <section class="relative w-fit">
                         <div 
                             x-show="showActions" 
@@ -105,42 +105,49 @@
 
                         <span 
                             x-text="getFormattedTime"
-                            class="font-timer text-6xl text-zinc-600 absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 z-10"
+                            class="font-timer text-6xl absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 z-10 transition-colors"
+                            :class="isFinished() ? 'text-zinc-300' : 'text-zinc-600'"
                         ></span>
     
-                        <svg @mouseenter="showActions = true" class="w-56 aspect-square">
+                        <svg 
+                            x-data="circularProgressBar(initialTimestamp)"
+                            @mouseenter="showActions = !isFinished()" 
+                            @reset-timer.document="handleTimerResetEvent($event)"
+                            class="w-56 aspect-square -rotate-90"
+                        >
                             <circle 
                                 class="text-zinc-100" 
                                 stroke-width="5%" 
                                 stroke="currentColor" 
                                 fill="transparent" 
-                                r="100" 
+                                :r="radius" 
                                 cx="50%" 
                                 cy="50%" />
                             <circle 
-                                x-data="{circumference: 100 * 2 * Math.PI, percent: 25}"
                                 class="text-lime-500 transition-all" 
                                 stroke-width="5%" 
                                 stroke="currentColor" 
                                 fill="transparent" 
-                                r="100" 
+                                :r="radius" 
                                 cx="50%" 
                                 cy="50%"
                                 stroke-linecap="round"
                                 :stroke-dasharray="circumference" 
-                                :stroke-dashoffset="circumference - percent / 100 * circumference" 
+                                :stroke-dashoffset="offset" 
                             />
                         </svg>
                     </section>
 
-                    <!-- 
-                    SÓ EXIBIR QUANDO O TIMER ZERAR
-                    <section>
+                    <section x-show="isFinished" x-transition>
                         <h1 class="font-bold text-3xl text-zinc-700">Parabéns <i>🎉</i></h1>
                         <p class="text-zinc-500 mt-2">Você chegou no fim de mais um ciclo dessa sessão!</p>
-                        <button class="mt-4 block w-full p-3 bg-lime-500 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]">Adicionar</button>
+                        <button 
+                            @click="goToNextModeAndRun"
+                            x-text="`Iniciar: ${$translate.messages.mode_names[nextMode.nameTranslationKey]}`"
+                            class="mt-4 block w-full p-3 bg-lime-500 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]"
+                        ></button>
                     </section> 
-                    -->
+                   
                 </article>
             </section>
 
