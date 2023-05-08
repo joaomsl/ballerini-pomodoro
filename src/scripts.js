@@ -22,4 +22,9 @@ Alpine.data('circularProgressBar', circularProgressBar)
 
 await translate.reloadMessages()
 
-Alpine.start()
+const whenLoaded = () => {
+    Alpine.start()
+    document.documentElement.setAttribute('loaded', true)
+}
+
+setTimeout(whenLoaded, 300)
