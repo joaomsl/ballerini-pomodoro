@@ -60,7 +60,7 @@
                         <span class="skeleton w-96 h-4 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
-                    <div x-cloak class="border flex items-center gap-2 px-2 py-1 rounded transition-colors" :class="Object.values(currentMode.styleClasses)">
+                    <div x-cloak class="border flex items-center gap-2 px-2 py-1 rounded transition-colors bg-opacity-10" :class="Object.values(currentMode.styleClasses)">
                         <i class="ph-light text-xl leading-none" :class="currentMode.iconName"></i>
                         <p x-text="messages.mode_names[currentMode.nameTranslationKey]" class="font-semibold text-sm"></p>
                     </div>
@@ -77,7 +77,7 @@
                         <span class="skeleton w-96 h-4 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
-                    <div x-cloak class="border flex items-center gap-2 px-2 py-1 rounded transition-colors" :class="Object.values(nextMode.styleClasses)">
+                    <div x-cloak class="border flex items-center gap-2 px-2 py-1 rounded transition-colors bg-opacity-10" :class="Object.values(nextMode.styleClasses)">
                         <i class="ph-light text-xl leading-none" :class="nextMode.iconName"></i>
                         <p x-text="messages.mode_names[nextMode.nameTranslationKey]" class="font-semibold text-sm"></p>
                     </div>
@@ -129,7 +129,8 @@
                                 cx="50%" 
                                 cy="50%" />
                             <circle 
-                                class="text-lime-500 transition-all" 
+                                class="transition-all"
+                                :class="currentMode.styleClasses.textColor" 
                                 stroke-width="5%" 
                                 stroke="currentColor" 
                                 fill="transparent" 
@@ -149,7 +150,8 @@
                         <button 
                             @click="goToNextModeAndRun"
                             x-text="messages.session.finished.button.replace('%mode%', messages.mode_names[nextMode.nameTranslationKey])"
-                            class="mt-4 block w-full p-3 bg-lime-500 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]"
+                            class="mt-4 block w-full p-3 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]"
+                            :class="nextMode.styleClasses.background" 
                         ></button>
                     </section> 
                    
@@ -178,7 +180,8 @@
                                 <input 
                                     @click="toggle(index)"
                                     :checked="task.isCompleted"
-                                    class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 text-lime-500 transition-colors focus:ring-lime-500 focus:transition-shadow hover:cursor-pointer" 
+                                    class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 transition-colors focus:transition-shadow hover:cursor-pointer"
+                                    :class="[currentMode.styleClasses.textColor, currentMode.styleClasses.focusRing]"  
                                     type="checkbox" 
                                     :id="$id('taskId')"
                                 >
@@ -203,7 +206,8 @@
                     <button
                         x-text="messages.tasks.add_button"
                         @click="handleAddTaskButtonClick" 
-                        class="basis-[20%] block w-full px-3 py-2 bg-lime-500 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]"
+                        class="basis-[20%] block w-full px-3 py-2 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]"
+                        :class="currentMode.styleClasses.background" 
                     ></button>
                 </div>
                 <div class="grid grid-cols-5 gap-x-3">
