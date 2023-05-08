@@ -4,4 +4,8 @@
 
 [x-cloak] { 
     display: none !important;
- }
+}
+
+[loaded] .skeleton {
+    display: none !important;
+}
