@@ -1,5 +1,7 @@
+const storage = window.localStorage
+
 const languages = ['pt-br', 'eng']
-let currentLanguageIndex = window.localStorage.getItem('ballerini-pomodoro-language') ?? 0
+let currentLanguageIndex = storage.getItem('ballerini-pomodoro-language') ?? 0
 
 function getCurrentLanguage() {
     return languages[currentLanguageIndex]
@@ -21,7 +23,7 @@ export default {
         const nextLanguageIndex = Math.min(currentLanguageIndex + 1, languages.length - 1)
         currentLanguageIndex = nextLanguageIndex === currentLanguageIndex ? 0 : nextLanguageIndex
 
-        window.localStorage.setItem('ballerini-pomodoro-language', currentLanguageIndex)
+        storage.setItem('ballerini-pomodoro-language', currentLanguageIndex)
         
         await this.reloadMessages()
     }
