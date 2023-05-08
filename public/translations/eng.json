@@ -2,5 +2,38 @@
     "header": {
         "title": "Pomodoro",
         "subtitle": "Manage your time in a magical way!"
+    },
+    
+    "mode_names": {
+        "focus": "Focus",
+        "shortPause": "Short Pause",
+        "longPause": "Long Pause"
+    },
+
+    "session": {
+        "title": "Session data",
+        "subtitle": "Follow the next cycles",
+
+        "current_mode": {
+            "title": "Current Mode:",
+            "subtitle": "Current stopwatch cycle"
+        },
+        "next_mode": {
+            "title": "Next Mode:",
+            "subtitle": "Which cycle will be activated"
+        },
+        "finished": {
+            "title": "Congratulations 🎉",
+            "subtitle": "You have reached the end of another cycle of this session!",
+            "button": "Start: %mode%"
+        }
+    },
+
+    "tasks": {
+        "title": "To-do list",
+        "subtitle": "Your goals for this session",
+
+        "input_placeholder": "New task",
+        "add_button": "To add"
     }
 }

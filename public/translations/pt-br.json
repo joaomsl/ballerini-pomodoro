@@ -8,5 +8,32 @@
         "focus": "Foco",
         "shortPause": "Pausa curta",
         "longPause": "Pausa longa"
+    },
+
+    "session": {
+        "title": "Dados da sessão",
+        "subtitle": "Acompanhe os próximos ciclos",
+
+        "current_mode": {
+            "title": "Modo atual:",
+            "subtitle": "Ciclo atual do cronômetro"
+        },
+        "next_mode": {
+            "title": "Próximo modo:",
+            "subtitle": "Qual ciclo será ativado"
+        },
+        "finished": {
+            "title": "Parabéns 🎉",
+            "subtitle": "Você chegou no fim de mais um ciclo dessa sessão!",
+            "button": "Iniciar: %mode%"
+        }
+    },
+
+    "tasks": {
+        "title": "Lista de tarefas",
+        "subtitle": "Seus objetivos para essa sessão",
+
+        "input_placeholder": "Nova tarefa",
+        "add_button": "Adicionar"
     }
 }
