@@ -19,6 +19,9 @@
             <div>
                 <h1 x-cloak x-text="messages.header.title" class="font-extrabold text-4xl text-zinc-800"></h1>
                 <p x-cloak x-text="messages.header.subtitle" class="font-medium text-xl text-zinc-500"></p>
+
+                <span class="skeleton w-72 h-9 rounded-full animate-pulse block bg-zinc-600"></span>
+                <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-500 mt-2"></span>
             </div>
             <div>
                 <button class="bg-zinc-100 p-2 rounded leading-none">
@@ -38,6 +41,9 @@
                     <div>
                         <h1 x-cloak x-text="messages.session.title" class="font-bold text-2xl text-zinc-600"></h1>
                         <p x-cloak x-text="messages.session.subtitle" class="text-zinc-500"></p>
+
+                        <span class="skeleton w-72 h-8 rounded-full animate-pulse block bg-zinc-500"></span>
+                        <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
                     <span class="bg-zinc-100 p-2 text-2xl rounded">⏳</span>
@@ -49,25 +55,39 @@
                     <div>
                         <h1 x-cloak x-text="messages.session.current_mode.title" class="font-semibold text-lg text-zinc-500"></h1>
                         <p x-cloak x-text="messages.session.current_mode.subtitle" class="font-medium text-sm text-zinc-400"></p>
+
+                        <span class="skeleton w-72 h-6 rounded-full animate-pulse block bg-zinc-500"></span>
+                        <span class="skeleton w-96 h-4 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
                     <div x-cloak class="border flex items-center gap-2 px-2 py-1 rounded transition-colors" :class="Object.values(currentMode.styleClasses)">
                         <i class="ph-light text-xl leading-none" :class="currentMode.iconName"></i>
                         <p x-text="messages.mode_names[currentMode.nameTranslationKey]" class="font-semibold text-sm"></p>
                     </div>
+
+                    <span class="skeleton w-20 h-6 bg-zinc-400 animate-pulse rounded-md"></span>
                 </article>
 
                 <article class="my-6 flex items-center justify-between">
                     <div>
                         <h1 x-cloak x-text="messages.session.next_mode.title" class="font-semibold text-lg text-zinc-500"></h1>
                         <p x-cloak x-text="messages.session.next_mode.title" class="font-medium text-sm text-zinc-400"></p>
+
+                        <span class="skeleton w-72 h-6 rounded-full animate-pulse block bg-zinc-500"></span>
+                        <span class="skeleton w-96 h-4 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
                     <div x-cloak class="border flex items-center gap-2 px-2 py-1 rounded transition-colors" :class="Object.values(nextMode.styleClasses)">
                         <i class="ph-light text-xl leading-none" :class="nextMode.iconName"></i>
                         <p x-text="messages.mode_names[nextMode.nameTranslationKey]" class="font-semibold text-sm"></p>
                     </div>
+
+                    <span class="skeleton w-20 h-6 bg-zinc-400 animate-pulse rounded-md"></span>
                 </article>
+
+                <div class="skeleton w-56 aspect-square mx-auto border-[0.9rem] border-zinc-400 rounded-full mt-12 animate-pulse grid place-items-center">
+                    <span class="font-timer text-6xl text-zinc-400">00:00</span>
+                </div>
 
                 <article x-cloak class="flex items-center justify-center gap-x-8">
                     <section class="relative w-fit">
@@ -142,6 +162,9 @@
                         <div>
                             <h1 x-text="messages.tasks.title" x-cloak class="font-bold text-2xl text-zinc-600"></h1>
                             <p x-text="messages.tasks.subtitle" x-cloak class="text-zinc-500"></p>
+
+                            <span class="skeleton w-72 h-8 rounded-full animate-pulse block bg-zinc-500"></span>
+                            <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                         </div>
     
                         <span class="bg-zinc-100 p-2 text-2xl rounded">🚀</span>
@@ -162,6 +185,11 @@
                                 <label x-text="task.text" class="font-medium text-zinc-500 hover:cursor-pointer" :for="$id('taskId')"></label>
                             </li>
                         </template>
+
+                        <span class="skeleton w-72 h-6 rounded-full animate-pulse block bg-zinc-300"></span>
+                        <span class="skeleton w-80 h-6 rounded-full animate-pulse block bg-zinc-300"></span>
+                        <span class="skeleton w-60 h-6 rounded-full animate-pulse block bg-zinc-300"></span>
+                        <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300"></span>
                     </ul>
                 </div>
 
@@ -177,6 +205,10 @@
                         @click="handleAddTaskButtonClick" 
                         class="basis-[20%] block w-full px-3 py-2 bg-lime-500 font-semibold text-zinc-50 text-sm rounded transition hover:brightness-[1.03]"
                     ></button>
+                </div>
+                <div class="grid grid-cols-5 gap-x-3">
+                    <span class="skeleton col-span-4 h-8 rounded-md animate-pulse block bg-zinc-300"></span>
+                    <span class="skeleton h-8 rounded-md animate-pulse block bg-zinc-300"></span>
                 </div>
             </section>
         </main>
