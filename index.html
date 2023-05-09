@@ -47,7 +47,7 @@
                         <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
-                    <span class="aspect-square bg-zinc-100 p-2 text-2xl rounded dark:bg-zinc-800">⏳</span>
+                    <span class="bg-zinc-100 p-2 text-2xl rounded dark:bg-zinc-800 w-12 text-center">⏳</span>
                 </header>
 
                 <hr class="my-6 bg-zinc-200 border-zinc-200 dark:bg-zinc-800 dark:border-zinc-800">
@@ -170,7 +170,7 @@
                             <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                         </div>
     
-                        <span class="bg-zinc-100 p-2 text-2xl rounded dark:bg-zinc-800">🚀</span>
+                        <span class="bg-zinc-100 p-2 text-2xl rounded dark:bg-zinc-800 w-12 text-center">🚀</span>
                     </header>
     
                     <hr class="my-6 bg-zinc-200 border-zinc-200 dark:bg-zinc-800 dark:border-zinc-800">
@@ -200,7 +200,8 @@
                 <div x-cloak class="flex gap-x-3">
                     <input
                         x-ref="taskInput" 
-                        class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:ring-lime-500 focus:transition-shadow dark:bg-zinc-800 dark:placeholder-zinc-600 dark:text-zinc-100" 
+                        class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:transition-shadow dark:bg-zinc-800 dark:placeholder-zinc-600 dark:text-zinc-100" 
+                        :class="currentMode.styleClasses.focusRing"
                         type="text" 
                         :placeholder="messages.tasks.input_placeholder"
                     >
