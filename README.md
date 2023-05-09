@@ -10,6 +10,10 @@
 
 > O método Pomodoro é uma técnica de gerenciamento de tempo que envolve dividir o trabalho em períodos de 25 minutos, chamados de "Pomodoros", seguidos de pausas curtas. Depois de quatro Pomodoros, uma pausa mais longa é realizada.
 
+<p><strong>🆕 Preview</strong> - Visualize a aplicação no link abaixo:</p>
+
+[Visualizar aplicação](https://ballerini-pomodoro.pages.dev/)
+
 <h2>💡 O que essa mini-aplicação faz?</h2>
 <p>Com essa aplicação você tem o controle do timer (que automaticamente define o tempo de trabalho e as suas pausas), e também uma área reservada para organizar suas tarefas.</p>
 
