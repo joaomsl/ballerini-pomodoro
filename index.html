@@ -10,51 +10,52 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/light/style.css"/>
 
     <link rel="stylesheet" href="styles.css">
-
+    <script src="src/scripts.js" type="module"></script>
+    
     <title>Ballerini - Pomodoro</title>
 </head>
-<body class="grid place-items-center h-screen bg-zinc-50">
+<body class="grid place-items-center h-screen bg-zinc-50 dark:bg-zinc-900 transition-colors">
     <div x-data="app" class="container mx-auto">
         <header class="flex items-center justify-between">
             <div>
-                <h1 x-cloak x-text="messages.header.title" class="font-extrabold text-4xl text-zinc-800"></h1>
-                <p x-cloak x-text="messages.header.subtitle" class="font-medium text-xl text-zinc-500"></p>
+                <h1 x-cloak x-text="messages.header.title" class="font-extrabold text-4xl text-zinc-800 dark:text-zinc-200"></h1>
+                <p x-cloak x-text="messages.header.subtitle" class="font-medium text-xl text-zinc-500 dark:text-zinc-400"></p>
 
                 <span class="skeleton w-72 h-9 rounded-full animate-pulse block bg-zinc-600"></span>
                 <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-500 mt-2"></span>
             </div>
             <div>
-                <button class="bg-zinc-100 p-2 rounded leading-none">
-                    <i class="ph-light ph-sun leading-none text-zinc-400 text-2xl"></i>
+                <button @click="$theme.toggleTheme" class="bg-zinc-100 p-2 rounded leading-none dark:bg-zinc-800">
+                    <i class="ph-light ph-sun leading-none text-zinc-400 text-2xl dark:text-zinc-500"></i>
                 </button>
-                <a class="bg-zinc-100 p-2 rounded leading-none inline-block" href="https://github.com/joaomsl/ballerini-pomodoro" target="_blank" rel="noopener noreferrer">
-                    <i class="ph-light ph-github-logo leading-none text-zinc-400 text-2xl"></i>
+                <a class="bg-zinc-100 p-2 rounded leading-none inline-block dark:bg-zinc-800" href="https://github.com/joaomsl/ballerini-pomodoro" target="_blank" rel="noopener noreferrer">
+                    <i class="ph-light ph-github-logo leading-none text-zinc-400 text-2xl dark:text-zinc-500"></i>
                 </a>            
-                <button @click="toggleLanguage" class="bg-zinc-100 p-2 rounded leading-none">
-                    <i class="ph-light ph-translate leading-none text-zinc-400 text-2xl"></i>
+                <button @click="toggleLanguage" class="bg-zinc-100 p-2 rounded leading-none dark:bg-zinc-800">
+                    <i class="ph-light ph-translate leading-none text-zinc-400 text-2xl dark:text-zinc-500"></i>
                 </button>
             </div>
         </header>
         <main x-data="pomodoro($mode.getCurrentMode(), $mode.getNextMode())" class="mt-12 grid grid-cols-2 gap-x-9">
-            <section class="p-6 border border-zinc-200 rounded-xl">
+            <section class="p-6 border border-zinc-200 rounded-xl dark:border-zinc-800 dark:bg-zinc-900">
                 <header class="flex items-center justify-between">
                     <div>
-                        <h1 x-cloak x-text="messages.session.title" class="font-bold text-2xl text-zinc-600"></h1>
-                        <p x-cloak x-text="messages.session.subtitle" class="text-zinc-500"></p>
+                        <h1 x-cloak x-text="messages.session.title" class="font-bold text-2xl text-zinc-600 dark:text-zinc-400"></h1>
+                        <p x-cloak x-text="messages.session.subtitle" class="text-zinc-500 dark:text-zinc-500"></p>
 
                         <span class="skeleton w-72 h-8 rounded-full animate-pulse block bg-zinc-500"></span>
                         <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                     </div>
 
-                    <span class="bg-zinc-100 p-2 text-2xl rounded">⏳</span>
+                    <span class="aspect-square bg-zinc-100 p-2 text-2xl rounded dark:bg-zinc-800">⏳</span>
                 </header>
 
-                <hr class="my-6 bg-zinc-200 border-zinc-200">
+                <hr class="my-6 bg-zinc-200 border-zinc-200 dark:bg-zinc-800 dark:border-zinc-800">
                 
                 <article class="flex items-center justify-between">
                     <div>
-                        <h1 x-cloak x-text="messages.session.current_mode.title" class="font-semibold text-lg text-zinc-500"></h1>
-                        <p x-cloak x-text="messages.session.current_mode.subtitle" class="font-medium text-sm text-zinc-400"></p>
+                        <h1 x-cloak x-text="messages.session.current_mode.title" class="font-semibold text-lg text-zinc-500 dark:text-zinc-400"></h1>
+                        <p x-cloak x-text="messages.session.current_mode.subtitle" class="font-medium text-sm text-zinc-400 dark:text-zinc-500"></p>
 
                         <span class="skeleton w-72 h-6 rounded-full animate-pulse block bg-zinc-500"></span>
                         <span class="skeleton w-96 h-4 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
@@ -70,8 +71,8 @@
 
                 <article class="my-6 flex items-center justify-between">
                     <div>
-                        <h1 x-cloak x-text="messages.session.next_mode.title" class="font-semibold text-lg text-zinc-500"></h1>
-                        <p x-cloak x-text="messages.session.next_mode.title" class="font-medium text-sm text-zinc-400"></p>
+                        <h1 x-cloak x-text="messages.session.next_mode.title" class="font-semibold text-lg text-zinc-500 dark:text-zinc-400"></h1>
+                        <p x-cloak x-text="messages.session.next_mode.title" class="font-medium text-sm text-zinc-400 dark:text-zinc-500"></p>
 
                         <span class="skeleton w-72 h-6 rounded-full animate-pulse block bg-zinc-500"></span>
                         <span class="skeleton w-96 h-4 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
@@ -111,7 +112,7 @@
                         <span 
                             x-text="getFormattedTime"
                             class="font-timer text-6xl absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 z-10 transition-colors"
-                            :class="isFinished() ? 'text-zinc-300' : 'text-zinc-600'"
+                            :class="isFinished() ? 'text-zinc-300 dark:text-zinc-700' : 'text-zinc-600 dark:text-zinc-100'"
                         ></span>
     
                         <svg 
@@ -121,7 +122,7 @@
                             class="w-56 aspect-square -rotate-90"
                         >
                             <circle 
-                                class="text-zinc-100" 
+                                class="text-zinc-100 dark:text-zinc-800" 
                                 stroke-width="5%" 
                                 stroke="currentColor" 
                                 fill="transparent" 
@@ -145,7 +146,7 @@
                     </section>
 
                     <section x-show="isFinished" x-transition>
-                        <h1 x-text="messages.session.finished.title" class="font-bold text-3xl text-zinc-700"></h1>
+                        <h1 x-text="messages.session.finished.title" class="font-bold text-3xl text-zinc-700 dark:text-zinc-100"></h1>
                         <p x-text="messages.session.finished.subtitle" class="text-zinc-500 mt-2"></p>
                         <button 
                             @click="goToNextModeAndRun"
@@ -158,21 +159,21 @@
                 </article>
             </section>
 
-            <section x-data="tasks" class="p-6 border border-zinc-200 rounded-xl flex flex-col justify-between">
+            <section x-data="tasks" class="flex flex-col justify-between p-6 border border-zinc-200 rounded-xl dark:border-zinc-800 dark:bg-zinc-900">
                 <div>
                     <header class="flex items-center justify-between">
                         <div>
-                            <h1 x-text="messages.tasks.title" x-cloak class="font-bold text-2xl text-zinc-600"></h1>
-                            <p x-text="messages.tasks.subtitle" x-cloak class="text-zinc-500"></p>
+                            <h1 x-text="messages.tasks.title" x-cloak class="font-bold text-2xl text-zinc-600 dark:text-zinc-400"></h1>
+                            <p x-text="messages.tasks.subtitle" x-cloak class="text-zinc-500 dark:text-zinc-500"></p>
 
                             <span class="skeleton w-72 h-8 rounded-full animate-pulse block bg-zinc-500"></span>
                             <span class="skeleton w-96 h-6 rounded-full animate-pulse block bg-zinc-300 mt-2"></span>
                         </div>
     
-                        <span class="bg-zinc-100 p-2 text-2xl rounded">🚀</span>
+                        <span class="bg-zinc-100 p-2 text-2xl rounded dark:bg-zinc-800">🚀</span>
                     </header>
     
-                    <hr class="my-6 bg-zinc-200 border-zinc-200">
+                    <hr class="my-6 bg-zinc-200 border-zinc-200 dark:bg-zinc-800 dark:border-zinc-800">
                     
                     <ul class="flex flex-col gap-y-4">
                         <template x-transition x-for="(task, index) in tasks" :key="index">
@@ -180,12 +181,12 @@
                                 <input 
                                     @click="toggle(index)"
                                     :checked="task.isCompleted"
-                                    class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 transition-colors focus:transition-shadow hover:cursor-pointer"
-                                    :class="[currentMode.styleClasses.textColor, currentMode.styleClasses.focusRing]"  
+                                    class="w-5 h-5 rounded border bg-zinc-100 border-zinc-200 transition-colors focus:transition-shadow hover:cursor-pointer dark:border-zinc-700"
+                                    :class="makeClassesForCheckbox(task, currentMode)" 
                                     type="checkbox" 
                                     :id="$id('taskId')"
                                 >
-                                <label x-text="task.text" class="font-medium text-zinc-500 hover:cursor-pointer" :for="$id('taskId')"></label>
+                                <label x-text="task.text" class="font-medium text-zinc-500 hover:cursor-pointer dark:text-zinc-500" :for="$id('taskId')"></label>
                             </li>
                         </template>
 
@@ -199,7 +200,7 @@
                 <div x-cloak class="flex gap-x-3">
                     <input
                         x-ref="taskInput" 
-                        class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:ring-lime-500 focus:transition-shadow" 
+                        class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:ring-lime-500 focus:transition-shadow dark:bg-zinc-800 dark:placeholder-zinc-600 dark:text-zinc-100" 
                         type="text" 
                         :placeholder="messages.tasks.input_placeholder"
                     >
@@ -210,14 +211,12 @@
                         :class="currentMode.styleClasses.background" 
                     ></button>
                 </div>
-                <div class="grid grid-cols-5 gap-x-3">
-                    <span class="skeleton col-span-4 h-8 rounded-md animate-pulse block bg-zinc-300"></span>
-                    <span class="skeleton h-8 rounded-md animate-pulse block bg-zinc-300"></span>
+                <div class="skeleton grid grid-cols-5 gap-x-3 animate-pulse">
+                    <span class="col-span-4 h-8 rounded-md block bg-zinc-300"></span>
+                    <span class="h-8 rounded-md block bg-zinc-300"></span>
                 </div>
             </section>
         </main>
     </div>
-
-    <script src="src/scripts.js" type="module"></script>
 </body>
 </html>
