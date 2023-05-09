@@ -30,6 +30,19 @@ export default function() {
             taskInput.value = ''
 
             inputText ? this.add(inputText) : alert('Digite algo na caixa de texto.')
+        },
+
+        makeClassesForCheckbox(task, mode) {
+            const textColor = mode.styleClasses.textColor
+            const focusRing = mode.styleClasses.focusRing
+
+
+            // WTF
+            const classes = {'dark:bg-zinc-800': !task.isCompleted}
+            classes[textColor] = true
+            classes[focusRing] = true
+
+            return classes
         }
     }
 }
