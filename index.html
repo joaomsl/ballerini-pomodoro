@@ -200,7 +200,8 @@
                 <div x-cloak class="flex gap-x-3">
                     <input
                         x-ref="taskInput" 
-                        class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:ring-lime-500 focus:transition-shadow dark:bg-zinc-800 dark:placeholder-zinc-600 dark:text-zinc-100" 
+                        class="block w-full p-2 border-none bg-zinc-100 rounded placeholder-zinc-400 font-medium text-sm focus:transition-shadow dark:bg-zinc-800 dark:placeholder-zinc-600 dark:text-zinc-100" 
+                        :class="currentMode.styleClasses.focusRing"
                         type="text" 
                         :placeholder="messages.tasks.input_placeholder"
                     >
