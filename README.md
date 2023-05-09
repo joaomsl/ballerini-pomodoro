@@ -44,14 +44,8 @@
 
 <h2>✨ Créditos/Links</h2>
 
-<ul>
-    <li><a href="https://www.instagram.com/ruy.dev/" target="__blank">Ruy Monteiro (Instagram)</a></li>
-    <li><a href="https://www.instagram.com/mateusdobit/" target="__blank">Mateus Santos (Instagram)</a></li>
-    <li><a href="https://discord.com/invite/ballerini" target="__blank">Comunidade da Ballerini (Discord)</a></li>
-    <li>
-        <a href=" https://www.figma.com/community/file/1236120820811357022" target="__blank">
-            Protótipo da aplicação (Figma)
-        </a>
-    </li>
-    <li><a href="https://github.com/joaomsl/ballerini-pomodoro/issues/new">Esqueci de você? Abra uma issue!</a></li>
-</ul>
+* [Ruy Monteiro (Instagram)](https://www.instagram.com/ruy.dev/)
+* [Mateus Santos (Instagram)](https://www.instagram.com/mateusdobit/)
+* [Comunidade da Ballerini (Discord)](https://discord.com/invite/ballerini)
+* [Protótipo da aplicação (Figma)](https://www.figma.com/community/file/1236120820811357022)
+* [Esqueci de você? Abra uma issue!](https://github.com/joaomsl/ballerini-pomodoro/issues/new)
