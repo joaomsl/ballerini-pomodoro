@@ -2,9 +2,8 @@
 
 <p align="center">
     <img 
-        src="https://github.com/joaomsl/ballerini-pomodoro/assets/109992990/76216727-f8c9-4799-9681-615d3f8bb9a0" 
+        src="https://github.com/joaomsl/ballerini-pomodoro/assets/109992990/6fe41d1c-a727-4584-ad57-132895203abe" 
         alt="Banner"
-        width="600"
     > 
 </p>
 
